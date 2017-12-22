@@ -26,6 +26,12 @@ namespace AdressBook.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> ByPerson(int id)
+        {
+            var applicationDbContext = _context.Adresses.Where(adress => adress.PersonID==id);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Adresses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,7 +63,7 @@ namespace AdressBook.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AdressID,Description,PersonID")] Adress adress)
+        public async Task<IActionResult> Create([Bind("AdressID,Description,Adresstype,PersonID")] Adress adress)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +97,7 @@ namespace AdressBook.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AdressID,Description,PersonID")] Adress adress)
+        public async Task<IActionResult> Edit(int id, [Bind("AdressID,Description,Adresstype,PersonID")] Adress adress)
         {
             if (id != adress.AdressID)
             {

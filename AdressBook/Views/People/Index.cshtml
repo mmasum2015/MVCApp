@@ -21,9 +21,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Email)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adress)
-                </th>
             <th></th>
         </tr>
     </thead>
@@ -40,12 +37,11 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Adress)
-            </td>
-            <td>
                 <a asp-action="Edit" asp-route-id="@item.PersonID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.PersonID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PersonID">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.PersonID">Delete</a>|
+                <a asp-area="" asp-controller="Adresses" asp-action="ByPerson" asp-route-id="@item.PersonID" >Address</a>
+
             </td>
         </tr>
 }

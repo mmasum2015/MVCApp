@@ -11,7 +11,7 @@ namespace AdressBook.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string AdressID { get; set; }
-        public virtual Adress Adress { get; set; }
+       
+        public List<Adress> Adresses { get; set; }
     }
 }

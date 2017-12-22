@@ -10,11 +10,16 @@ namespace AdressBook.Data
     {
         public static void Seed(ApplicationDbContext context)
         {
-            var aAdress = new Adress() {Description="He love to live that place" , Adresstype="Appartment"};
-            var aMan = new Person() {FirstName="Raham", LastName="Masum", Email="raham@gmail.com", Adress= aAdress};
+            var aMan = new Person() {FirstName="Raham", LastName="Masum", Email="raham@gmail.com"};
+            var bMan = new Person() { FirstName = "Rahen", LastName = "Ismail", Email = "rehan@gmail.com"};
 
-            var bAdress = new Adress() { Description = "He live that place for job purpases", Adresstype = "Villa" };
-            var bMan = new Person() { FirstName = "Rahen", LastName = "Ismail", Email = "rehan@gmail.com", Adress = bAdress };
+            var aAdress = new Adress() { Description = "He love to live that place", Adresstype = "Appartment",Person=aMan };
+
+            var bAdress = new Adress() { Description = "He live that place for job purpases", Adresstype = "Villa" ,Person=bMan};
+            context.Add(aAdress);
+            context.Add(bAdress);
+
+            context.SaveChanges();
         }
     }
 }
