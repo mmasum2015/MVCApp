@@ -38,9 +38,9 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PersonID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PersonID">Details</a> |
+                <a asp-action="Details" asp-route-id="@item.PersonID" asp-route-slug="@AdressBook.Utils.Slug.Slugify(item.FirstName + " " + item.LastName)">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.PersonID">Delete</a>|
-                <a asp-area="" asp-controller="Adresses" asp-action="ByPerson" asp-route-id="@item.PersonID" >Address</a>
+                <a asp-area="" asp-controller="Adresses" asp-action="ByPerson" asp-route-id="@item.PersonID">Address</a>
 
             </td>
         </tr>

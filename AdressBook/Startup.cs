@@ -30,7 +30,7 @@ namespace AdressBook
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseInMemoryDatabase("DefaultConnection"));
+                options.UseInMemoryDatabase("Test"));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -64,7 +64,7 @@ namespace AdressBook
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Contact}/{id?}");
+                    template: "{controller=Home}/{action=Contact}/{id?}/{slug?}");
             });
             DbSeed.Seed(context);
         }

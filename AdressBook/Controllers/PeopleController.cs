@@ -22,7 +22,7 @@ namespace AdressBook.Controllers
         // GET: People
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Persons.ToListAsync());
+            return View(await _context.Persons.OrderBy(x => x.LastName).ToListAsync());
         }
 
         // GET: People/Details/5
